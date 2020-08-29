@@ -25,6 +25,7 @@ window.onload = randomBook;
 randomCoverButton.addEventListener('click', randomBook);
 makeNewCoverButton.addEventListener('click', showFormView);
 viewSavedButton.addEventListener('click', showSavedView);
+homeButton.addEventListener('click', showHomeView);
 
 // Create your event handlers and other functions here 👇
 function displayCover(randomCover, randomTitle, randomPhrase1, randomPhrase2) {
@@ -59,6 +60,14 @@ function showSavedView() {
   formView.classList.add('hidden');
   homeButton.classList.remove('hidden');
   savedView.classList.remove('hidden');
+}
+
+function showHomeView() {
+  homeButton.classList.add('hidden');
+  homeView.classList.remove('hidden');
+  randomCoverButton.classList.remove('hidden');
+  saveCoverButton.classList.remove('hidden');
+  viewSavedButton.classList.remove('hidden');
 }
 
 // We've provided one function to get you started
