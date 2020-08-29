@@ -45,29 +45,30 @@ function randomBook() {
 }
 
 function showFormView() {
-  homeView.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-  saveCoverButton.classList.add('hidden');
-  savedView.classList.add('hidden');
-  formView.classList.remove('hidden');
-  homeButton.classList.remove('hidden');
+  addHidden([homeView, randomCoverButton, saveCoverButton, savedView]);
+  removeHidden([formView, homeButton]);
 };
 
 function showSavedView() {
-  homeView.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-  saveCoverButton.classList.add('hidden');
-  formView.classList.add('hidden');
-  homeButton.classList.remove('hidden');
-  savedView.classList.remove('hidden');
+  addHidden([homeView, randomCoverButton, saveCoverButton, formView]);
+  removeHidden([savedView, homeButton]);
 }
 
 function showHomeView() {
-  homeButton.classList.add('hidden');
-  homeView.classList.remove('hidden');
-  randomCoverButton.classList.remove('hidden');
-  saveCoverButton.classList.remove('hidden');
-  viewSavedButton.classList.remove('hidden');
+  addHidden([homeButton]);
+  removeHidden([homeView, randomCoverButton, saveCoverButton, viewSavedButton]);
+}
+
+function addHidden(elements) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.add('hidden');
+    }
+}
+
+function removeHidden(elements) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('hidden');
+    }
 }
 
 // We've provided one function to get you started
