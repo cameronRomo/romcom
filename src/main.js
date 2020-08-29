@@ -7,8 +7,10 @@ var randomCoverButton = document.querySelector('.random-cover-button');
 var makeNewCoverButton = document.querySelector('.make-new-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
 var homeButton = document.querySelector('.home-button');
+var viewSavedButton = document.querySelector('.view-saved-button');
 var homeView = document.querySelector('.home-view');
 var formView = document.querySelector('.form-view');
+var savedView = document.querySelector('.saved-view');
 
 
 // We've provided a few variables below
@@ -21,7 +23,8 @@ var currentCover;
 
 window.onload = randomBook;
 randomCoverButton.addEventListener('click', randomBook);
-makeNewCoverButton.addEventListener('click', toggleHidden);
+makeNewCoverButton.addEventListener('click', showFormView);
+viewSavedButton.addEventListener('click', showSavedView);
 
 // Create your event handlers and other functions here 👇
 function displayCover(randomCover, randomTitle, randomPhrase1, randomPhrase2) {
@@ -40,13 +43,23 @@ function randomBook() {
   displayCover(randomCover, randomTitle, randomPhrase1, randomPhrase2);
 }
 
-function toggleHidden() {
+function showFormView() {
   homeView.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
+  savedView.classList.add('hidden');
   formView.classList.remove('hidden');
   homeButton.classList.remove('hidden');
 };
+
+function showSavedView() {
+  homeView.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
+  saveCoverButton.classList.add('hidden');
+  formView.classList.add('hidden');
+  homeButton.classList.remove('hidden');
+  savedView.classList.remove('hidden');
+}
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
