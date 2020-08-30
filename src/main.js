@@ -11,6 +11,11 @@ var viewSavedButton = document.querySelector('.view-saved-button');
 var homeView = document.querySelector('.home-view');
 var formView = document.querySelector('.form-view');
 var savedView = document.querySelector('.saved-view');
+var coverInput = document.querySelector('.user-cover');
+var titleInput = document.querySelector('.user-title');
+var descOneInput = document.querySelector('.user-desc1');
+var descTwoInput = document.querySelector('.user-desc2');
+var createBookButton = document.querySelector('.create-new-book-button');
 
 
 // We've provided a few variables below
@@ -26,6 +31,8 @@ randomCoverButton.addEventListener('click', randomBook);
 makeNewCoverButton.addEventListener('click', showFormView);
 viewSavedButton.addEventListener('click', showSavedView);
 homeButton.addEventListener('click', showHomeView);
+createBookButton.addEventListener('click', addInputs);
+
 
 // Create your event handlers and other functions here 👇
 function displayCover(randomCover, randomTitle, randomPhrase1, randomPhrase2) {
@@ -55,7 +62,7 @@ function showSavedView() {
 }
 
 function showHomeView() {
-  addHidden([homeButton]);
+  addHidden([homeButton, formView]);
   removeHidden([homeView, randomCoverButton, saveCoverButton, viewSavedButton]);
 }
 
@@ -70,6 +77,13 @@ function removeHidden(elements) {
         elements[i].classList.remove('hidden');
     }
 }
+
+function addInputs() {
+    covers.unshift(coverInput.value);
+    titles.unshift(titleInput.value);
+    descriptors.splice(0, 0, descOneInput.value, descTwoInput.value);
+}
+
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
