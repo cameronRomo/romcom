@@ -16,6 +16,7 @@ var titleInput = document.querySelector('.user-title');
 var descOneInput = document.querySelector('.user-desc1');
 var descTwoInput = document.querySelector('.user-desc2');
 var createBookButton = document.querySelector('.create-new-book-button');
+var savedCoversSection = document.querySelector('.saved-covers-section');
 
 
 // We've provided a few variables below
@@ -32,7 +33,7 @@ makeNewCoverButton.addEventListener('click', showFormView);
 viewSavedButton.addEventListener('click', showSavedView);
 homeButton.addEventListener('click', showHomeView);
 createBookButton.addEventListener('click', createUserBook);
-saveCoverButton.addEventListener('click', saveUserCover);
+saveCoverButton.addEventListener('click', displaySavedCover);
 
 
 // Create your event handlers and other functions here 👇
@@ -110,11 +111,23 @@ function saveUserCover() {
   }
 };
 
-// function displaySavedCover() {
-//   // use the savedUserCover function
-//   // display on the DOM
-//   //    All saved covers
-// }
+function displaySavedCover() {
+  savedCoversSection.innerHTML = '';
+  saveUserCover();
+  for (var i = 0; i < savedCovers.length; i++) {
+    savedCoversSection.insertAdjacentHTML('afterbegin',`
+    <section class="mini-cover" id="${savedCovers[i].id}">
+      <img class="cover-image" src=${savedCovers[i].cover}>
+      <h2 class="cover-title">${savedCovers[i].title}</h2>
+      <h3 class="tagline">A tale of <span>${savedCovers[i].tagline1}</span> and <span>${savedCovers[i].tagline2}</span></h3>
+      <img class="overlay" src="./assets/overlay.png">
+    </section>`
+    );
+  }
+// use the savedUserCover function
+// display on the DOM
+// All saved covers
+}
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
