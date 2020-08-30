@@ -84,6 +84,14 @@ function addInputs() {
     descriptors.splice(0, 0, descOneInput.value, descTwoInput.value);
 }
 
+function displayUserBook() {
+  image.src = covers[0];
+  title.innerText = titles[0];
+  phrase1.innerText = descriptors[0];
+  phrase2.innerText = descriptors[1];
+}
+
+
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
