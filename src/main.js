@@ -31,7 +31,7 @@ randomCoverButton.addEventListener('click', randomBook);
 makeNewCoverButton.addEventListener('click', showFormView);
 viewSavedButton.addEventListener('click', showSavedView);
 homeButton.addEventListener('click', showHomeView);
-createBookButton.addEventListener('click', addInputs);
+createBookButton.addEventListener('click', createUserBook);
 
 
 // Create your event handlers and other functions here 👇
@@ -91,7 +91,13 @@ function displayUserBook() {
   phrase2.innerText = descriptors[1];
 }
 
-
+function createUserBook() {
+    event.preventDefault();
+    addInputs();
+    currentCover = new Cover(covers[0], titles[0], descriptors[0], descriptors[1]);
+    displayUserBook();
+    showHomeView();
+}
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
