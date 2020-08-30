@@ -32,6 +32,7 @@ makeNewCoverButton.addEventListener('click', showFormView);
 viewSavedButton.addEventListener('click', showSavedView);
 homeButton.addEventListener('click', showHomeView);
 createBookButton.addEventListener('click', createUserBook);
+saveCoverButton.addEventListener('click', saveUserCover);
 
 
 // Create your event handlers and other functions here 👇
@@ -40,16 +41,16 @@ function displayCover(randomCover, randomTitle, randomPhrase1, randomPhrase2) {
   title.innerText = randomTitle;
   phrase1.innerText = randomPhrase1;
   phrase2.innerText = randomPhrase2;
-}
+};
 
 function randomBook() {
   var randomCover = covers[getRandomIndex(covers)];
   var randomTitle = titles[getRandomIndex(titles)];
   var randomPhrase1 = descriptors[getRandomIndex(descriptors)];
   var randomPhrase2 = descriptors[getRandomIndex(descriptors)];
-  //currentCover = new Cover(randomCover, randomTitle, randomPhrase1, randomPhrase2);
+  currentCover = new Cover(randomCover, randomTitle, randomPhrase1, randomPhrase2);
   displayCover(randomCover, randomTitle, randomPhrase1, randomPhrase2);
-}
+};
 
 function showFormView() {
   addHidden([homeView, randomCoverButton, saveCoverButton, savedView]);
@@ -59,37 +60,37 @@ function showFormView() {
 function showSavedView() {
   addHidden([homeView, randomCoverButton, saveCoverButton, formView]);
   removeHidden([savedView, homeButton]);
-}
+};
 
 function showHomeView() {
   addHidden([homeButton, formView]);
   removeHidden([homeView, randomCoverButton, saveCoverButton, viewSavedButton]);
-}
+};
 
 function addHidden(elements) {
     for (var i = 0; i < elements.length; i++) {
         elements[i].classList.add('hidden');
     }
-}
+};
 
 function removeHidden(elements) {
     for (var i = 0; i < elements.length; i++) {
         elements[i].classList.remove('hidden');
     }
-}
+};
 
 function addInputs() {
     covers.unshift(coverInput.value);
     titles.unshift(titleInput.value);
     descriptors.splice(0, 0, descOneInput.value, descTwoInput.value);
-}
+};
 
 function displayUserBook() {
   image.src = covers[0];
   title.innerText = titles[0];
   phrase1.innerText = descriptors[0];
   phrase2.innerText = descriptors[1];
-}
+};
 
 function createUserBook() {
     event.preventDefault();
@@ -97,7 +98,23 @@ function createUserBook() {
     currentCover = new Cover(covers[0], titles[0], descriptors[0], descriptors[1]);
     displayUserBook();
     showHomeView();
-}
+};
+
+function saveUserCover() {
+  for (var i = 0; i < savedCovers.length; i++) {
+    if (currentCover.id != savedCovers[i].id) {
+      return savedCovers.unshift(currentCover);
+    } else {
+      return;
+    }
+  }
+};
+
+// function displaySavedCover() {
+//   // use the savedUserCover function
+//   // display on the DOM
+//   //    All saved covers
+// }
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
