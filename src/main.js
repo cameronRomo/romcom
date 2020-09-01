@@ -18,7 +18,6 @@ var descTwoInput = document.querySelector('.user-desc2');
 var createBookButton = document.querySelector('.create-new-book-button');
 var savedCoversSection = document.querySelector('.saved-covers-section');
 
-
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
@@ -34,7 +33,6 @@ viewSavedButton.addEventListener('click', showSavedView);
 homeButton.addEventListener('click', showHomeView);
 createBookButton.addEventListener('click', createUserBook);
 saveCoverButton.addEventListener('click', displaySavedCover);
-
 
 // Create your event handlers and other functions here 👇
 function displayCover(randomCover, randomTitle, randomPhrase1, randomPhrase2) {
@@ -124,10 +122,7 @@ function displaySavedCover() {
     </section>`
     );
   }
-// use the savedUserCover function
-// display on the DOM
-// All saved covers
-}
+};
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
