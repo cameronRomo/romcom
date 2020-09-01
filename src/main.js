@@ -34,7 +34,7 @@ viewSavedButton.addEventListener('click', showSavedView);
 homeButton.addEventListener('click', showHomeView);
 createBookButton.addEventListener('click', createUserBook);
 saveCoverButton.addEventListener('click', displaySavedCover);
-
+savedCoversSection.addEventListener('dblclick', deleteCover);
 
 // Create your event handlers and other functions here 👇
 function displayCover(randomCover, randomTitle, randomPhrase1, randomPhrase2) {
@@ -116,17 +116,24 @@ function displaySavedCover() {
   saveUserCover();
   for (var i = 0; i < savedCovers.length; i++) {
     savedCoversSection.insertAdjacentHTML('afterbegin',`
-    <section class="mini-cover" id="${savedCovers[i].id}">
-      <img class="cover-image" src=${savedCovers[i].cover}>
-      <h2 class="cover-title">${savedCovers[i].title}</h2>
-      <h3 class="tagline">A tale of <span>${savedCovers[i].tagline1}</span> and <span>${savedCovers[i].tagline2}</span></h3>
-      <img class="overlay" src="./assets/overlay.png">
+    <section class="mini-cover">
+      <img class="cover-image" src=${savedCovers[i].cover} id="${savedCovers[i].id}">
+      <h2 class="cover-title" id="${savedCovers[i].id}">${savedCovers[i].title}</h2>
+      <h3 class="tagline" id="${savedCovers[i].id}">A tale of <span>${savedCovers[i].tagline1}</span> and <span>${savedCovers[i].tagline2}</span></h3>
+      <img class="overlay" src="./assets/overlay.png" id="${savedCovers[i].id}">
     </section>`
     );
   }
-// use the savedUserCover function
-// display on the DOM
-// All saved covers
+};
+
+function deleteCover() {
+  var coverIdentity = event.target.id;
+  for (var i = 0; i < savedCovers.length; i++) {
+    if (coverIdentity === `${savedCovers[i].id}`) {
+      savedCovers.splice(i, 1);
+    }
+  }
+  displaySavedCover();
 }
 
 // We've provided one function to get you started
