@@ -25,6 +25,8 @@ People say that romance novels are formulaic. Well ... maybe that's true. We're 
 
 * When the user loads or reloads the page, a random cover is displayed.  This random cover will contain a random image, title, and tagline.
 
+![Screen Shot 2020-09-01 at 4 05 51 PM](https://user-images.githubusercontent.com/67242223/91911723-e9b91500-ec6e-11ea-9756-bf59ebf2a614.png)
+
 ### Show Random Cover
 
 * When the user clicks the 'Show New Random Cover' button, a new random cover will be created and then displayed on the main page.
@@ -34,6 +36,10 @@ People say that romance novels are formulaic. Well ... maybe that's true. We're 
 * When the user clicks on 'Make Your Own Cover' button, the home page is hidden and the user is taken to a section of the page where they can view the form to make their own book.  
 * When the 'View Saved Covers' button is clicked, the user is taken to the section of the page where the saved covers will be displayed.
 * In each view the correct buttons are displayed/hidden so the user can properly navigate the page.
+
+![Screen Shot 2020-09-01 at 4 06 19 PM](https://user-images.githubusercontent.com/67242223/91911848-25ec7580-ec6f-11ea-8321-b1c1c05dea67.png)
+
+![Screen Shot 2020-09-01 at 4 07 16 PM](https://user-images.githubusercontent.com/67242223/91911901-43214400-ec6f-11ea-966f-2502ddbd6f9f.png)
 
 ### Creating a New Cover
 
