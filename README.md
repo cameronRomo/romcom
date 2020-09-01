@@ -1,12 +1,11 @@
----
-title: RomCom - Pair
----
+# Title: RomCom - Pair
 
-[Our Website](https://cameronromo.github.io/romcom/)
+>[Our Website](https://cameronromo.github.io/romcom/)
 
-## Project Team: 
+## Project Team 
 
 [Jordon Smith](https://github.com/jdxsmith), contributor
+
 [Cameron Romo](https://github.com/cameronRomo), contributor
 
 ## Learning Goals
